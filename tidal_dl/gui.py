@@ -1,13 +1,5 @@
 #!/usr/bin/env python
-# -*- encoding: utf-8 -*-
-"""
-@File    :  test.py
-@Date    :  2022/03/28
-@Author  :  Yaronzz
-@Version :  1.0
-@Contact :  yaronhuang@foxmail.com
-@Desc    :  
-"""
+
 import sys
 import aigpy
 import _thread

@@ -1,13 +1,5 @@
 #!/usr/bin/env python
-# -*- encoding: utf-8 -*-
-'''
-@File    :   tidal.py
-@Time    :   2019/02/27
-@Author  :   Yaronzz
-@VERSION :   3.0
-@Contact :   yaronhuang@foxmail.com
-@Desc    :   tidal api
-'''
+
 import json
 import random
 import re

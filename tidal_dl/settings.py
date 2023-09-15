@@ -1,13 +1,5 @@
 #!/usr/bin/env python
-# -*- encoding: utf-8 -*-
-'''
-@File    :   settings.py
-@Time    :   2020/11/08
-@Author  :   Yaronzz
-@Version :   3.0
-@Contact :   yaronhuang@foxmail.com
-@Desc    :
-'''
+
 import json
 import aigpy
 import base64
@@ -34,7 +26,7 @@ class Settings(aigpy.model.ModelBase):
     audioQuality = AudioQuality.Normal
     videoQuality = VideoQuality.P360
     usePlaylistFolder = True
-    albumFolderFormat = R"{ArtistName}/{Flag} {AlbumTitle} [{AlbumID}] [{AlbumYear}]"
+    albumFolderFormat = R"{ArtistName}/{Flag} {AlbumTitle}"
     playlistFolderFormat = R"Playlist/{PlaylistName} [{PlaylistUUID}]"
     trackFileFormat = R"{TrackNumber} - {ArtistName} - {TrackTitle}{ExplicitFlag}"
     videoFileFormat = R"{VideoNumber} - {ArtistName} - {VideoTitle}{ExplicitFlag}"

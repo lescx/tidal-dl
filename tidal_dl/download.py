@@ -1,13 +1,5 @@
 #!/usr/bin/env python
-# -*- encoding: utf-8 -*-
-'''
-@File    :   download.py
-@Time    :   2020/11/08
-@Author  :   Yaronzz
-@Version :   1.0
-@Contact :   yaronhuang@foxmail.com
-@Desc    :   
-'''
+
 import aigpy
 import logging
 

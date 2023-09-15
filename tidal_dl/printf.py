@@ -1,13 +1,5 @@
 #!/usr/bin/env python
-# -*- encoding: utf-8 -*-
-'''
-@File    :   printf.py
-@Time    :   2020/08/16
-@Author  :   Yaronzz
-@Version :   3.0
-@Contact :   yaronhuang@foxmail.com
-@Desc    :   
-'''
+
 from pickle import GLOBAL
 import threading
 import aigpy
@@ -22,7 +14,7 @@ from tidal_dl.settings import *
 from tidal_dl.lang.language import *
 
 
-VERSION = '2022.10.31.1'
+VERSION = '2023.09.15.0'
 __LOGO__ = f'''
  /$$$$$$$$ /$$       /$$           /$$               /$$ /$$
 |__  $$__/|__/      | $$          | $$              | $$| $$
@@ -33,7 +25,7 @@ __LOGO__ = f'''
    | $$   | $$|  $$$$$$$|  $$$$$$$| $$        |  $$$$$$$| $$
    |__/   |__/ \_______/ \_______/|__/         \_______/|__/
    
-       https://github.com/yaronzz/Tidal-Media-Downloader 
+             https://github.com/lescx/tidal-dl 
        
                         {VERSION}
 '''
@@ -63,7 +55,6 @@ class Printf(object):
         tb = Printf.__gettable__(["OPTION", "DESC"], [
             ["-h or --help",        "show help-message"],
             ["-v or --version",     "show version"],
-            ["-g or --gui",         "show simple-gui"],
             ["-o or --output",      "download path"],
             ["-l or --link",        "url/id/filePath"],
             ["-q or --quality",     "track quality('Normal','High,'HiFi','Master')"],

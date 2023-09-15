@@ -1,13 +1,4 @@
 #!/usr/bin/env python
-# -*- encoding: utf-8 -*-
-"""
-@File    :  events.py
-@Date    :  2022/06/10
-@Author  :  Yaronzz
-@Version :  1.0
-@Contact :  yaronhuang@foxmail.com
-@Desc    :  
-"""
 
 import aigpy
 import time

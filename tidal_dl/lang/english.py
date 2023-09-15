@@ -1,13 +1,4 @@
 #!/usr/bin/env python
-# -*- encoding: utf-8 -*-
-'''
-@File    :   english.py
-@Time    :   2021/11/24
-@Author  :   Yaronzz & jee019
-@Version :   1.2
-@Contact :   yaronhuang@foxmail.com
-@Desc    :   
-'''
 
 
 class LangEnglish(object):

@@ -1,13 +1,5 @@
 #!/usr/bin/env python
-# -*- encoding: utf-8 -*-
-'''
-@File    :   model.py
-@Time    :   2020/08/08
-@Author  :   Yaronzz
-@Version :   3.0
-@Contact :   yaronhuang@foxmail.com
-@Desc    :   
-'''
+
 import aigpy
 
 class StreamUrl(aigpy.model.ModelBase):
