@@ -11,22 +11,39 @@
 
 ## Installation / Developing 
 
-<!-- ```shell
-pip3 install tidal-dl --upgrade
-``` -->
+### 0. Prerequisites
+
+* Make sure you have Python 3.11 or higher installed on your system.
+* Install [Poetry](https://python-poetry.org) if you haven't already (it's great!). You can install it using pip:
 
 ```shell
-python3 -m venv venv_tidal-dl
-source venv_tidal-dl/bin/activate
-pip3 uninstall tidal-dl
-pip3 install -r requirements.txt --user
-python3 setup.py install
+pip install poetry
 ```
 
-And when you are done developing:
+### 1. Install Dependencies with Poetry
+
+Use Poetry to install the project's dependencies and set up a python `venv` virtual environment:
 
 ```shell
-deactivate
+poetry install
+```
+
+This command will create a virtual environment for your project and install all required dependencies listed in `pyproject.toml`.
+
+### 2. Activate the Virtual Environment
+
+If you want to activate the virtual environment to work within it, you can use:
+
+```shell
+poetry shell
+```
+
+Activating the virtual environment is optional but recommended since you probably don't want to clutter your system.
+
+### (Do Your Development and) Run Your Program
+
+```shell
+poetry run python tidal_dl/__init__.py
 ```
 
 ## Usage
@@ -36,7 +53,6 @@ deactivate
 | tidal-dl                                              | Show interactive interface |
 | tidal-dl -h                                           | Show help-message          |
 | tidal-dl -l "https://tidal.com/browse/track/70973230" | Download link              |
-| tidal-dl -g                                           | Show simple-gui            |
 
 ## Settings - Possible Tags
 
@@ -90,13 +106,13 @@ deactivate
 
 ## Support
 
-If you really like my projects and want to support me, you can [buy Yaronzz a coffee](https://www.buymeacoffee.com/yaronzz).
+If you really like this project and want to say thank you, you can [buy Yaronzz a coffee](https://www.buymeacoffee.com/yaronzz).
 
 Please consider leaving a star on the original project or my fork.
 
 ## Contributors
 
-I thank [yaronzz](https://github.com/yaronzz) for creating this tool initially!
+I thank [Yaronzz](https://github.com/yaronzz) for creating this tool initially!
 
 This project exists thanks [to all the people who contribute](https://github.com/yaronzz/Tidal-Media-Downloader/graphs/contributors). 
 
