@@ -16,7 +16,7 @@ pip3 install tidal-dl --upgrade
 ``` -->
 
 ```shell
-python3 -m venv tidal-dl
+python3 -m venv venv_tidal-dl
 source venv/bin/activate
 pip3 uninstall tidal-dl
 pip3 install -r requirements.txt --user
