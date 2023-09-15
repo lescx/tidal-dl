@@ -1,6 +1,6 @@
 # `tidal-dl` – Tidal Media Downloader
 
-`tidal-dl` is a fork of [Tidal-Media-Downloader](https://github.com/yaronzz/Tidal-Media-Downloader.) It lets you download videos and tracks from Tidal.
+`tidal-dl` is a fork of [Tidal-Media-Downloader](https://github.com/yaronzz/Tidal-Media-Downloader). It lets you download videos and tracks from Tidal.
 
 ## Disclaimer
 
