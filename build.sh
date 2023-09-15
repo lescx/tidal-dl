@@ -1,17 +1,13 @@
-rm -rf dist
-rm -rf build 
-rm -rf __init__.spec
+#!/bin/sh
 
-cd TIDALDL-PY
-rm -rf __init__.spec 
-rm -rf dist
-rm -rf build 
-rm -rf exe
-rm -rf MANIFEST.in
-rm -rf *.egg-info
+rm -rf dist build __init__.spec
 
-python setup.py sdist bdist_wheel
+cd tidal-dl
+rm -rf __init__.spec dist build exe MANIFEST.in ./*.egg-info
+
+python3 setup.py sdist bdist_wheel
 pyinstaller -F tidal_dl/__init__.py
+
 mkdir exe
 mv dist/__init__.exe exe/tidal-dl.exe
 
