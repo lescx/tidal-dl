@@ -1,19 +1,27 @@
-# `tidal-dl` – Tidal Media Downloader
+# `tidal-dl` – "Tidal Media Downloader" fork
 
 `tidal-dl` is a fork of [Tidal-Media-Downloader](https://github.com/yaronzz/Tidal-Media-Downloader). It lets you download videos and tracks from Tidal.
 
 ## Disclaimer
 
 - Private use only.
-- Need a paid Tidal-HIFI subscription. 
-- You should not use this method to distribute or pirate music.
-- It may be illegal to use this in your country, so be informed.
+- You need a paid Tidal-HIFI subscription.
+- You must not use this method for music distribution or piracy.
+- It may be illegal to use `tidal-dl` in your country.
 
-## Installation 
+## Installation / Developing 
+
+<!-- ```shell
+pip3 install tidal-dl --upgrade
+``` -->
 
 ```shell
-pip3 install tidal-dl --upgrade
+pip3 uninstall tidal-dl
+pip3 install -r requirements.txt --user
+python3 setup.py install
 ```
+
+## Usage
 
 | USE                                                   | FUNCTION                   |
 | ----------------------------------------------------- | -------------------------- |
@@ -74,7 +82,9 @@ pip3 install tidal-dl --upgrade
 
 ## Support
 
-If you really like my projects and want to support me, you can [buy Yaronzz a coffee](https://www.buymeacoffee.com/yaronzz) and star its project or my fork.
+If you really like my projects and want to support me, you can [buy Yaronzz a coffee](https://www.buymeacoffee.com/yaronzz).
+
+Please consider leaving a star on the original project or my fork.
 
 ## Contributors
 
@@ -89,14 +99,6 @@ This project exists thanks [to all the people who contribute](https://github.com
 - [redsea](https://github.com/redsudo/RedSea)
 - [tidal-wiki](https://github.com/Fokka-Engineering/TIDAL/wiki)
 
-## Developing
-
-```shell
-pip3 uninstall tidal-dl
-pip3 install -r requirements.txt --user
-python3 setup.py install
-```
-
 ## License
 
-- [License](https://github.com/lescx/tidal-dl/blob/master/LICENSE)
+This project is licensed under The Apache Version 2.0 License. More information can be found [here](https://github.com/yaronzz/Tidal-Media-Downloader/blob/master/LICENSE)
