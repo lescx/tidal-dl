@@ -1,6 +1,6 @@
 # `tidal-dl` – Tidal Media Downloader
 
-`tidal-dl` lets you download videos and tracks from Tidal.
+`tidal-dl` is a fork of [Tidal-Media-Downloader](https://github.com/yaronzz/Tidal-Media-Downloader.) It lets you download videos and tracks from Tidal.
 
 ## Disclaimer
 
@@ -74,13 +74,13 @@ pip3 install tidal-dl --upgrade
 
 ## Support
 
-If you really like my projects and want to support me, you can [buy Yaronzz a coffee](https://www.buymeacoffee.com/yaronzz) and star its project - or my fork.
+If you really like my projects and want to support me, you can [buy Yaronzz a coffee](https://www.buymeacoffee.com/yaronzz) and star its project or my fork.
 
 ## Contributors
 
-This project exists thanks to all the people who contribute. 
+I thank [yaronzz](https://github.com/yaronzz) for creating this tool initially!
 
-- [Contributors](https://github.com/yaronzz/Tidal-Media-Downloader/graphs/contributors)
+This project exists thanks [to all the people who contribute](https://github.com/yaronzz/Tidal-Media-Downloader/graphs/contributors). 
 
 ## Libraries and reference
 
