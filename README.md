@@ -16,9 +16,17 @@ pip3 install tidal-dl --upgrade
 ``` -->
 
 ```shell
+python3 -m venv tidal-dl
+source venv/bin/activate
 pip3 uninstall tidal-dl
 pip3 install -r requirements.txt --user
 python3 setup.py install
+```
+
+And when you are done developing:
+
+```shell
+deactivate
 ```
 
 ## Usage
