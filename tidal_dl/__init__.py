@@ -3,30 +3,27 @@
 '''
 @File    :   __init__.py
 @Time    :   2020/11/08
-@Author  :   Yaronzz
+@Author  :   les.cx
 @Version :   3.0
-@Contact :   yaronhuang@foxmail.com
-@Desc    :   
+@Contact :   luca@les.cx
+@Desc    :   "tidal-dl lets you download videos and tracks from Tidal."
 '''
 import sys
 import getopt
 
 from tidal_dl.events import *
 from tidal_dl.settings import *
-from tidal_dl.gui import startGui
-
 
 def mainCommand():
     try:
         opts, args = getopt.getopt(sys.argv[1:], 
                                    "hvgl:o:q:r:", 
-                                   ["help", "version", "gui", "link=", "output=", "quality", "resolution"])
+                                   ["help", "version", "link=", "output=", "quality", "resolution"])
     except getopt.GetoptError as errmsg:
-        Printf.err(vars(errmsg)['msg'] + ". Use 'tidal-dl -h' for useage.")
+        Printf.err(vars(errmsg)['msg'] + ". Use 'tidal-dl -h' for usage.")
         return
 
     link = None
-    showGui = False
     for opt, val in opts:
         if opt in ('-h', '--help'):
             Printf.usage()
@@ -34,9 +31,6 @@ def mainCommand():
         if opt in ('-v', '--version'):
             Printf.logo()
             return
-        if opt in ('-g', '--gui'):
-            showGui = True
-            continue
         if opt in ('-l', '--link'):
             link = val
             continue
@@ -57,10 +51,6 @@ def mainCommand():
         Printf.err(LANG.select.MSG_PATH_ERR + SETTINGS.downloadPath)
         return
     
-    if showGui:
-        startGui()
-        return
-
     if link is not None:
         if not loginByConfig():
             loginByWeb()
