@@ -129,14 +129,10 @@ This project exists thanks [to all the people who contribute](https://github.com
 
 ## Why a fork?
 
-Der Hauptgrund sind überflüssige Anti-Features und schlechte design-Entscheidungen in der Entwicklung, die mich während der Benutzung geärgert haben.
-
-Bei meinem fork lege ich deshalb besonderen Wert auf:
-
-- Folgen aktueller best practices
-- besser keine GUI als eine halbherzig implementierte GUI
-- keine unnötigen Abhängigkeiten
-- Implementierung der UNIX-Philosophy (insofern das in ein Python-tool möglich ist)
+* follow current best practices
+* better no GUI than a half-heartedly implemented GUI
+* no unnecessary dependencies
+* implementation of the UNIX philosophy (as far as this is possible in a Python tool)
 
 ## License
 
