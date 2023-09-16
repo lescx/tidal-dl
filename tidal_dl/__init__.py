@@ -46,7 +46,7 @@ def mainCommand():
     if link is not None:
         if not loginByConfig():
             loginByWeb()
-        Printf.info(LANG.select.SETTING_DOWNLOAD_PATH + ':' + SETTINGS.downloadPath)
+        #Printf.info(LANG.select.SETTING_DOWNLOAD_PATH + ':' + SETTINGS.downloadPath)
         start(link)
 
 def main():
@@ -77,17 +77,10 @@ def main():
         elif choice == "3":
             loginByAccessToken()
         elif choice == "4":
-            changePathSettings()
-        elif choice == "5":
-            changeQualitySettings()
-        elif choice == "6":
-            changeSettings()
-        elif choice == "7":
             if changeApiKey():
                 loginByWeb()
         else:
             start(choice)
 
 if __name__ == '__main__':
-    # test()
     main()

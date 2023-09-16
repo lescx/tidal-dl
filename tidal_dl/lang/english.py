@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-
 class LangEnglish(object):
     SETTING = "SETTINGS"
     VALUE = "VALUE"
@@ -8,7 +7,6 @@ class LangEnglish(object):
     SETTING_ONLY_M4A = "Convert mp4 to m4a"
     SETTING_ADD_EXPLICIT_TAG = "Add explicit tag"
     SETTING_ADD_HYPHEN = "Add hyphen"
-    SETTING_ADD_YEAR = "Add year before album-folder"
     SETTING_USE_TRACK_NUM = "Add user track number"
     SETTING_AUDIO_QUALITY = "Audio quality"
     SETTING_VIDEO_QUALITY = "Video quality"
@@ -39,18 +37,18 @@ class LangEnglish(object):
     CHOICE = "CHOICE"
     FUNCTION = "FUNCTION"
     CHOICE_ENTER = "Enter"
-    CHOICE_ENTER_URLID = "Enter 'Url/ID':"
+    CHOICE_ENTER_URLID = "Enter 'URL/ID':"
     CHOICE_EXIT = "Exit"
     CHOICE_LOGIN = "Check AccessToken"
     CHOICE_SETTINGS = "Settings"
     CHOICE_SET_ACCESS_TOKEN = "Set AccessToken"
-    CHOICE_DOWNLOAD_BY_URL = "Download by url or ID"
+    CHOICE_DOWNLOAD_BY_URL = "Download by URL or ID"
     CHOICE_LOGOUT = "Logout"
     CHOICE_APIKEY = "Select APIKey"
 
-    PRINT_ERR = "[ERR]"
-    PRINT_INFO = "[INFO]"
-    PRINT_SUCCESS = "[SUCCESS]"
+    PRINT_ERR = ""
+    PRINT_INFO = ""
+    PRINT_SUCCESS = ""
 
     PRINT_ENTER_CHOICE = "Enter Choice:"
     PRINT_LATEST_VERSION = "Latest version:"
