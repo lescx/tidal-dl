@@ -24,15 +24,6 @@ class Printf(object):
         print(version)
 
     @staticmethod
-    def __gettable__(columns, rows):
-        tb = prettytable.PrettyTable()
-        tb.field_names = list(aigpy.cmd.green(item) for item in columns)
-        tb.align = 'l'
-        for item in rows:
-            tb.add_row(item)
-        return tb
-    
-    @staticmethod
     def usage():
         tb = """    -h or --help          show help-message
     -v, --version         show version
@@ -42,39 +33,6 @@ class Printf(object):
     -r, --resolution      video resolution('P1080', 'P720', 'P480', 'P360')"""
         print(tb)
         
-    @staticmethod
-    def settings():
-        data = SETTINGS
-        #tb = Printf.__gettable__([LANG.select.SETTING, LANG.select.VALUE], [
-            ##settings - path and format
-            #[LANG.select.SETTING_PATH, getProfilePath()],
-            #[LANG.select.SETTING_DOWNLOAD_PATH, data.downloadPath],
-            #[LANG.select.SETTING_ALBUM_FOLDER_FORMAT, data.albumFolderFormat],
-            #[LANG.select.SETTING_PLAYLIST_FOLDER_FORMAT, data.playlistFolderFormat],
-            #[LANG.select.SETTING_TRACK_FILE_FORMAT, data.trackFileFormat],
-            #[LANG.select.SETTING_VIDEO_FILE_FORMAT, data.videoFileFormat],
-        #    
-            ##settings - quality
-            #[LANG.select.SETTING_AUDIO_QUALITY, data.audioQuality],
-            #[LANG.select.SETTING_VIDEO_QUALITY, data.videoQuality],
-        #    
-            ##settings - else
-            #[LANG.select.SETTING_USE_PLAYLIST_FOLDER, data.usePlaylistFolder],
-            #[LANG.select.SETTING_CHECK_EXIST, data.checkExist],
-            #[LANG.select.SETTING_SHOW_PROGRESS, data.showProgress],
-            #[LANG.select.SETTING_SHOW_TRACKINFO, data.showTrackInfo],
-            #[LANG.select.SETTING_SAVE_ALBUMINFO, data.saveAlbumInfo],
-            #[LANG.select.SETTING_DOWNLOAD_VIDEOS, data.downloadVideos],
-            #[LANG.select.SETTING_SAVE_COVERS, data.saveCovers],
-            #[LANG.select.SETTING_INCLUDE_EP, data.includeEP],
-            #[LANG.select.SETTING_LANGUAGE, LANG.getLangName(data.language)],
-            #[LANG.select.SETTING_ADD_LRC_FILE, data.lyricFile],
-            #[LANG.select.SETTING_MULITHREAD_DOWNLOAD, data.multiThread],
-            #[LANG.select.SETTING_APIKEY, f"[{data.apiKeyIndex}]" + apiKey.getItem(data.apiKeyIndex)['formats']],
-            #[LANG.select.SETTING_DOWNLOAD_DELAY, data.downloadDelay],
-        #])
-        print("wip settings()")
-
     @staticmethod
     def choices():
         #tb = Printf.__gettable__([LANG.select.CHOICE, LANG.select.FUNCTION], [
