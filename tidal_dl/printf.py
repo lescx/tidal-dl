@@ -14,21 +14,7 @@ from tidal_dl.settings import *
 from tidal_dl.lang.language import *
 
 
-VERSION = '2023.09.15.0'
-__LOGO__ = f'''
- /$$$$$$$$ /$$       /$$           /$$               /$$ /$$
-|__  $$__/|__/      | $$          | $$              | $$| $$
-   | $$    /$$  /$$$$$$$  /$$$$$$ | $$          /$$$$$$$| $$
-   | $$   | $$ /$$__  $$ |____  $$| $$ /$$$$$$ /$$__  $$| $$
-   | $$   | $$| $$  | $$  /$$$$$$$| $$|______/| $$  | $$| $$
-   | $$   | $$| $$  | $$ /$$__  $$| $$        | $$  | $$| $$
-   | $$   | $$|  $$$$$$$|  $$$$$$$| $$        |  $$$$$$$| $$
-   |__/   |__/ \_______/ \_______/|__/         \_______/|__/
-   
-             https://github.com/lescx/tidal-dl 
-       
-                        {VERSION}
-'''
+version = 'v0.1.0'
 
 print_mutex = threading.Lock()
 
@@ -36,9 +22,8 @@ print_mutex = threading.Lock()
 class Printf(object):
 
     @staticmethod
-    def logo():
-        print(__LOGO__)
-        logging.info(__LOGO__)
+    def version():
+        print(version)
 
     @staticmethod
     def __gettable__(columns, rows):
@@ -62,14 +47,6 @@ class Printf(object):
         ])
         print(tb)
         
-    @staticmethod
-    def checkVersion():
-        onlineVer = aigpy.pip.getLastVersion('tidal-dl')
-        if onlineVer is not None:
-            icmp = aigpy.system.cmpVersion(onlineVer, VERSION)
-            if icmp > 0:
-                Printf.info(LANG.select.PRINT_LATEST_VERSION + ' ' + onlineVer)
-
     @staticmethod
     def settings():
         data = SETTINGS
@@ -105,7 +82,6 @@ class Printf(object):
 
     @staticmethod
     def choices():
-        print("====================================================")
         tb = Printf.__gettable__([LANG.select.CHOICE, LANG.select.FUNCTION], [
             [aigpy.cmd.green(LANG.select.CHOICE_ENTER + " '0':"), LANG.select.CHOICE_EXIT],
             [aigpy.cmd.green(LANG.select.CHOICE_ENTER + " '1':"), LANG.select.CHOICE_LOGIN],
@@ -119,7 +95,6 @@ class Printf(object):
         ])
         tb.set_style(prettytable.PLAIN_COLUMNS)
         print(tb)
-        print("====================================================")
 
     @staticmethod
     def enter(string):
