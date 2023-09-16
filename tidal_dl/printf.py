@@ -4,7 +4,6 @@ from pickle import GLOBAL
 import threading
 import aigpy
 import logging
-import prettytable
 
 import tidal_dl.apiKey as apiKey
 
@@ -15,7 +14,6 @@ from tidal_dl.lang.language import *
 
 
 version = 'v0.1.0'
-
 print_mutex = threading.Lock()
 
 
@@ -47,48 +45,47 @@ class Printf(object):
     @staticmethod
     def settings():
         data = SETTINGS
-        tb = Printf.__gettable__([LANG.select.SETTING, LANG.select.VALUE], [
-            #settings - path and format
-            [LANG.select.SETTING_PATH, getProfilePath()],
-            [LANG.select.SETTING_DOWNLOAD_PATH, data.downloadPath],
-            [LANG.select.SETTING_ALBUM_FOLDER_FORMAT, data.albumFolderFormat],
-            [LANG.select.SETTING_PLAYLIST_FOLDER_FORMAT, data.playlistFolderFormat],
-            [LANG.select.SETTING_TRACK_FILE_FORMAT, data.trackFileFormat],
-            [LANG.select.SETTING_VIDEO_FILE_FORMAT, data.videoFileFormat],
-            
-            #settings - quality
-            [LANG.select.SETTING_AUDIO_QUALITY, data.audioQuality],
-            [LANG.select.SETTING_VIDEO_QUALITY, data.videoQuality],
-            
-            #settings - else
-            [LANG.select.SETTING_USE_PLAYLIST_FOLDER, data.usePlaylistFolder],
-            [LANG.select.SETTING_CHECK_EXIST, data.checkExist],
-            [LANG.select.SETTING_SHOW_PROGRESS, data.showProgress],
-            [LANG.select.SETTING_SHOW_TRACKINFO, data.showTrackInfo],
-            [LANG.select.SETTING_SAVE_ALBUMINFO, data.saveAlbumInfo],
-            [LANG.select.SETTING_DOWNLOAD_VIDEOS, data.downloadVideos],
-            [LANG.select.SETTING_SAVE_COVERS, data.saveCovers],
-            [LANG.select.SETTING_INCLUDE_EP, data.includeEP],
-            [LANG.select.SETTING_LANGUAGE, LANG.getLangName(data.language)],
-            [LANG.select.SETTING_ADD_LRC_FILE, data.lyricFile],
-            [LANG.select.SETTING_MULITHREAD_DOWNLOAD, data.multiThread],
-            [LANG.select.SETTING_APIKEY, f"[{data.apiKeyIndex}]" + apiKey.getItem(data.apiKeyIndex)['formats']],
-            [LANG.select.SETTING_DOWNLOAD_DELAY, data.downloadDelay],
-        ])
-        print(tb)
+        #tb = Printf.__gettable__([LANG.select.SETTING, LANG.select.VALUE], [
+            ##settings - path and format
+            #[LANG.select.SETTING_PATH, getProfilePath()],
+            #[LANG.select.SETTING_DOWNLOAD_PATH, data.downloadPath],
+            #[LANG.select.SETTING_ALBUM_FOLDER_FORMAT, data.albumFolderFormat],
+            #[LANG.select.SETTING_PLAYLIST_FOLDER_FORMAT, data.playlistFolderFormat],
+            #[LANG.select.SETTING_TRACK_FILE_FORMAT, data.trackFileFormat],
+            #[LANG.select.SETTING_VIDEO_FILE_FORMAT, data.videoFileFormat],
+        #    
+            ##settings - quality
+            #[LANG.select.SETTING_AUDIO_QUALITY, data.audioQuality],
+            #[LANG.select.SETTING_VIDEO_QUALITY, data.videoQuality],
+        #    
+            ##settings - else
+            #[LANG.select.SETTING_USE_PLAYLIST_FOLDER, data.usePlaylistFolder],
+            #[LANG.select.SETTING_CHECK_EXIST, data.checkExist],
+            #[LANG.select.SETTING_SHOW_PROGRESS, data.showProgress],
+            #[LANG.select.SETTING_SHOW_TRACKINFO, data.showTrackInfo],
+            #[LANG.select.SETTING_SAVE_ALBUMINFO, data.saveAlbumInfo],
+            #[LANG.select.SETTING_DOWNLOAD_VIDEOS, data.downloadVideos],
+            #[LANG.select.SETTING_SAVE_COVERS, data.saveCovers],
+            #[LANG.select.SETTING_INCLUDE_EP, data.includeEP],
+            #[LANG.select.SETTING_LANGUAGE, LANG.getLangName(data.language)],
+            #[LANG.select.SETTING_ADD_LRC_FILE, data.lyricFile],
+            #[LANG.select.SETTING_MULITHREAD_DOWNLOAD, data.multiThread],
+            #[LANG.select.SETTING_APIKEY, f"[{data.apiKeyIndex}]" + apiKey.getItem(data.apiKeyIndex)['formats']],
+            #[LANG.select.SETTING_DOWNLOAD_DELAY, data.downloadDelay],
+        #])
+        print("wip settings()")
 
     @staticmethod
     def choices():
-        tb = Printf.__gettable__([LANG.select.CHOICE, LANG.select.FUNCTION], [
-            [aigpy.cmd.green(LANG.select.CHOICE_ENTER + " '0':"), LANG.select.CHOICE_EXIT],
-            [aigpy.cmd.green(LANG.select.CHOICE_ENTER + " '1':"), LANG.select.CHOICE_LOGIN],
-            [aigpy.cmd.green(LANG.select.CHOICE_ENTER + " '2':"), LANG.select.CHOICE_LOGOUT],
-            [aigpy.cmd.green(LANG.select.CHOICE_ENTER + " '3':"), LANG.select.CHOICE_SET_ACCESS_TOKEN],
-            [aigpy.cmd.green(LANG.select.CHOICE_ENTER + " '4':"), LANG.select.CHOICE_APIKEY],
-            [aigpy.cmd.green(LANG.select.CHOICE_ENTER_URLID), LANG.select.CHOICE_DOWNLOAD_BY_URL],
-        ])
-        tb.set_style(prettytable.PLAIN_COLUMNS)
-        print(tb)
+        #tb = Printf.__gettable__([LANG.select.CHOICE, LANG.select.FUNCTION], [
+        #    [aigpy.cmd.green(LANG.select.CHOICE_ENTER + " '0':"), LANG.select.CHOICE_EXIT],
+        #    [aigpy.cmd.green(LANG.select.CHOICE_ENTER + " '1':"), LANG.select.CHOICE_LOGIN],
+        #    [aigpy.cmd.green(LANG.select.CHOICE_ENTER + " '2':"), LANG.select.CHOICE_LOGOUT],
+        #    [aigpy.cmd.green(LANG.select.CHOICE_ENTER + " '3':"), LANG.select.CHOICE_SET_ACCESS_TOKEN],
+        #    [aigpy.cmd.green(LANG.select.CHOICE_ENTER + " '4':"), LANG.select.CHOICE_APIKEY],
+        #    [aigpy.cmd.green(LANG.select.CHOICE_ENTER_URLID), LANG.select.CHOICE_DOWNLOAD_BY_URL],
+        #])
+        print("wip choices()")
 
     @staticmethod
     def enter(string):
@@ -253,17 +250,17 @@ class Printf(object):
 
     @staticmethod
     def apikeys(items):
-        print("API-Keys")
-        tb = prettytable.PrettyTable()
-        tb.field_names = [aigpy.cmd.green('Index'), 
-                          aigpy.cmd.green('Valid'),
-                          aigpy.cmd.green('Platform'), 
-                          aigpy.cmd.green('Formats'), ]
-        tb.align = 'l'
-        
-        for index, item in enumerate(items):
-            tb.add_row([str(index), 
-                        aigpy.cmd.green('True') if item["valid"] == "True" else aigpy.cmd.red('False'),
-                        item["platform"], 
-                        item["formats"]])
-        print(tb)
+        #print("API-Keys")
+        #tb = prettytable.PrettyTable()
+        #tb.field_names = [aigpy.cmd.green('Index'), 
+        #                  aigpy.cmd.green('Valid'),
+        #                  aigpy.cmd.green('Platform'), 
+        #                  aigpy.cmd.green('Formats'), ]
+        #tb.align = 'l'
+        #
+        #for index, item in enumerate(items):
+        #    tb.add_row([str(index), 
+        #                aigpy.cmd.green('True') if item["valid"] == "True" else aigpy.cmd.red('False'),
+        #                item["platform"], 
+        #                item["formats"]])
+        print("wip apikeys()")
