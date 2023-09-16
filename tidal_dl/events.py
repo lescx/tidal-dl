@@ -10,9 +10,7 @@ from tidal_dl.printf import *
 from tidal_dl.download import *
 
 '''
-=================================
-START DOWNLOAD
-=================================
+Start Download
 '''
 
 
@@ -117,9 +115,7 @@ def start(string):
 
 
 '''
-=================================
-CHANGE SETTINGS
-=================================
+Change Settings
 '''
 
 
@@ -198,9 +194,7 @@ def changeApiKey():
 
 
 '''
-=================================
-LOGIN
-=================================
+Login
 '''
 
 
@@ -297,7 +291,7 @@ def loginByConfig():
 
 def loginByAccessToken():
     try:
-        print("-------------AccessToken---------------")
+        print("AccessToken")
         token = Printf.enter("accessToken('0' go back):")
         if token == '0':
             return
@@ -306,7 +300,7 @@ def loginByAccessToken():
         Printf.err(str(e))
         return
 
-    print("-------------RefreshToken---------------")
+    print("RefreshToken")
     refreshToken = Printf.enter("refreshToken('0' to skip):")
     if refreshToken == '0':
         refreshToken = TOKEN.refreshToken

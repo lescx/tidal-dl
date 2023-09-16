@@ -74,6 +74,7 @@ def getAlbumPath(album):
     retpath = retpath.strip()
     return f"{SETTINGS.downloadPath}/{retpath}"
 
+
 def getPlaylistPath(playlist):
     playlistName = __fixPath__(playlist.title)
 
@@ -176,16 +177,17 @@ def __getHomePath__():
         return os.environ['XDG_CONFIG_HOME']
     elif "HOME" in os.environ:
         return os.environ['HOME']
-    elif "HOMEDRIVE" in os.environ and "HOMEPATH" in os.environ:
-        return os.environ['HOMEDRIVE'] + os.environ['HOMEPATH']
     else:
         return os.path.abspath("./")
 
+
 def getLogPath():
-    return __getHomePath__() + '/.tidal-dl.log'
+    return __getHomePath__() + '/tidal-dl/tidal-dl.log'
+
 
 def getTokenPath():
-    return __getHomePath__() + '/.tidal-dl.token.json'
+    return __getHomePath__() + '/tidal-dl/tidal-dl.token.json'
+
 
 def getProfilePath():
-    return __getHomePath__() + '/.tidal-dl.json'
+    return __getHomePath__() + '/tidal-dl/tidal-dl.json'
