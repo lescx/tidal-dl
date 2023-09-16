@@ -1,6 +1,8 @@
-# `tidal-dl` – "Tidal Media Downloader" fork
+# `tidal-dl` – "Tidal Media Downloader"
 
 `tidal-dl` is a fork of [Tidal-Media-Downloader](https://github.com/yaronzz/Tidal-Media-Downloader). It lets you download videos and tracks from Tidal.
+
+You can read about the [reasons for the fork]() below.
 
 ## Disclaimer
 
@@ -14,11 +16,13 @@
 ### 0. Prerequisites
 
 * Make sure you have Python 3.11 or higher installed on your system.
-* Install [Poetry](https://python-poetry.org) if you haven't already (it's great!). You can install it using pip:
+* Install [Poetry](https://python-poetry.org) if you haven't already (it's great!). You can install it using pipx:
 
 ```shell
-pip install poetry
+pipx install poetry
 ```
+
+For other installation methods, see Poetry's [official docs](https://python-poetry.org/docs/).
 
 ### 1. Install Dependencies with Poetry
 
@@ -38,7 +42,7 @@ If you want to activate the virtual environment to work within it, you can use:
 poetry shell
 ```
 
-Activating the virtual environment is optional but recommended since you probably don't want to clutter your system.
+Activating the virtual environment is optional but highly recommended.
 
 ### (Do Your Development and) Run Your Program
 
@@ -122,6 +126,17 @@ This project exists thanks [to all the people who contribute](https://github.com
 - [python-tidal](https://github.com/tamland/python-tidal)
 - [redsea](https://github.com/redsudo/RedSea)
 - [tidal-wiki](https://github.com/Fokka-Engineering/TIDAL/wiki)
+
+## Why a fork?
+
+Der Hauptgrund sind überflüssige Anti-Features und schlechte design-Entscheidungen in der Entwicklung, die mich während der Benutzung geärgert haben.
+
+Bei meinem fork lege ich deshalb besonderen Wert auf:
+
+- Folgen aktueller best practices
+- besser keine GUI als eine halbherzig implementierte GUI
+- keine unnötigen Abhängigkeiten
+- Implementierung der UNIX-Philosophy (insofern das in ein Python-tool möglich ist)
 
 ## License
 
