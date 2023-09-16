@@ -14,7 +14,7 @@ class LangEnglish(object):
     SETTING_VIDEO_QUALITY = "Video quality"
     SETTING_CHECK_EXIST = "Check exist"
     SETTING_ARTIST_BEFORE_TITLE = "ArtistName before track-title"
-    SETTING_ALBUMID_BEFORE_FOLDER = "Id before album-folder"
+    SETTING_ALBUMID_BEFORE_FOLDER = "ID before album-folder"
     SETTING_INCLUDE_EP = "Include singles & EPs"
     SETTING_SAVE_COVERS = "Save covers"
     SETTING_LANGUAGE = "Language"
@@ -54,8 +54,6 @@ class LangEnglish(object):
 
     PRINT_ENTER_CHOICE = "Enter Choice:"
     PRINT_LATEST_VERSION = "Latest version:"
-    # PRINT_USERNAME = "username:"
-    # PRINT_PASSWORD = "password:"
 
     CHANGE_START_SETTINGS = "Start settings('0'-Return,'1'-Yes):"
     CHANGE_DOWNLOAD_PATH = "Download path('0'-not modify):"
@@ -69,7 +67,7 @@ class LangEnglish(object):
     CHANGE_CHECK_EXIST = "Check exist file before download track('0'-No,'1'-Yes):"
     CHANGE_ARTIST_BEFORE_TITLE = "Add artistName before track title('0'-No,'1'-Yes):"
     CHANGE_INCLUDE_EP = "Include singles and EPs when downloading an artist's albums('0'-No,'1'-Yes):"
-    CHANGE_ALBUMID_BEFORE_FOLDER = "Add id before album folder('0'-No,'1'-Yes):"
+    CHANGE_ALBUMID_BEFORE_FOLDER = "Add ID before album folder('0'-No,'1'-Yes):"
     CHANGE_SAVE_COVERS = "Save covers('0'-No,'1'-Yes):"
     CHANGE_LANGUAGE = "Select language"
     CHANGE_ALBUM_FOLDER_FORMAT = "Album folder format('0'-not modify,'default'-to set default):"

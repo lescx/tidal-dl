@@ -22,9 +22,9 @@ class Settings(aigpy.model.ModelBase):
     multiThread = False
     downloadDelay = True
 
-    downloadPath = "./download/"
+    downloadPath = "./music/"
     audioQuality = AudioQuality.Normal
-    videoQuality = VideoQuality.P360
+    videoQuality = VideoQuality.P1080
     usePlaylistFolder = True
     albumFolderFormat = R"{ArtistName}/{Flag} {AlbumTitle}"
     playlistFolderFormat = R"Playlist/{PlaylistName} [{PlaylistUUID}]"
