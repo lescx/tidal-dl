@@ -1,6 +1,6 @@
 # `tidal-dl` – "Tidal Media Downloader"
 
-`tidal-dl` lets you download videos and tracks from Tidal.
+`tidal-dl` lets you archive tracks from Tidal.
 
 I forked [Yaronzz](https://github.com/yaronzz/Tidal-Media-Downloader) project after it developed in the wrong direction and in a slow pace in my opinion. Still, this project uses many lines of the original code under the hood.
 
@@ -87,18 +87,6 @@ poetry run python tidal_dl/__init__.py
 | {DurationSeconds} | 173                                        |
 | {Duration}        | 02:53                                      |
 | {TrackID}         | 55163244                                   |
-
-### Video
-
-| Tag               | Example Value                              |
-| ----------------- | ------------------------------------------ |
-| {VideoNumber}     | 00                                         |
-| {ArtistName}      | DMX                                        |
-| {ArtistsName}     | DMX, Westside Gunn                         |
-| {VideoTitle}      | Hood Blues                                 |
-| {ExplicitFlag}    | (*Explicit*)                               |
-| {VideoYear}       | 2021                                       |
-| {TrackID}         | 188932980                                  |
 
 
 ## Support
