@@ -1,6 +1,6 @@
 # `tidal-dl` – "Tidal Media Downloader"
 
-`tidal-dl` lets you archive tracks from Tidal.
+`tidal-dl` lets you archive music from Tidal.
 
 I forked [Yaronzz](https://github.com/yaronzz/Tidal-Media-Downloader) project after it developed in the wrong direction and in a slow pace in my opinion. Still, this project uses many lines of the original code under the hood.
 
