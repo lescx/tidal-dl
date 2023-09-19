@@ -102,37 +102,6 @@ def downloadAlbumInfo(album, tracks):
     aigpy.file.write(path, infos, "w+")
 
 
-def downloadVideo(video: Video, album: Album = None, playlist: Playlist = None):
-    try:
-        stream = TIDAL_API.getVideoStreamUrl(video.id, SETTINGS.videoQuality)
-        path = getVideoPath(video, album, playlist)
-        
-        Printf.video(video, stream)
-        logging.info("[DL Video] name=" + aigpy.path.getFileName(path) + "\nurl=" + stream.m3u8Url)
-
-        m3u8content = requests.get(stream.m3u8Url).content
-        if m3u8content is None:
-            Printf.err(f"DL Video[{video.title}] getM3u8 failed.{str(e)}")
-            return False, f"GetM3u8 failed.{str(e)}"
-
-        urls = aigpy.m3u8.parseTsUrls(m3u8content)
-        if len(urls) <= 0:
-            Printf.err(f"DL Video[{video.title}] getTsUrls failed.{str(e)}")
-            return False, "GetTsUrls failed.{str(e)}"
-
-        check, msg = aigpy.m3u8.downloadByTsUrls(urls, path)
-        if check:
-            # This prints the video title after a finished download
-            Printf.success(video.title)
-            return True
-        else:
-            Printf.err(f"DL Video[{video.title}] failed.{msg}")
-            return False, msg
-    except Exception as e:
-        Printf.err(f"DL Video[{video.title}] failed.{str(e)}")
-        return False, str(e)
-
-
 def downloadTrack(track: Track, album=None, playlist=None, userProgress=None, partSize=1048576):
     try:
         stream = TIDAL_API.getStreamUrl(track.id, SETTINGS.audioQuality)
@@ -212,8 +181,3 @@ def downloadTracks(tracks, album: Album = None, playlist : Playlist=None):
                 item.trackNumberOnPlaylist = index + 1
             thread_pool.submit(downloadTrack, item, itemAlbum, playlist)
         thread_pool.shutdown(wait=True)
-
-
-def downloadVideos(videos, album: Album, playlist=None):
-    for item in videos:
-        downloadVideo(item, album, playlist)

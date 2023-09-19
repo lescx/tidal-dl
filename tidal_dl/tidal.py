@@ -199,9 +199,6 @@ class TidalAPI(object):
     def getTrack(self, id) -> Track:
         return aigpy.model.dictToModel(self.__get__('tracks/' + str(id)), Track())
 
-    def getVideo(self, id) -> Video:
-        return aigpy.model.dictToModel(self.__get__('videos/' + str(id)), Video())
-
     def getMix(self, id) -> Mix:
         mix = Mix()
         mix.id = id
@@ -215,8 +212,6 @@ class TidalAPI(object):
             return self.getArtist(id)
         if type == Type.Track:
             return self.getTrack(id)
-        if type == Type.Video:
-            return self.getVideo(id)
         if type == Type.Playlist:
             return self.getPlaylist(id)
         if type == Type.Mix:
@@ -237,8 +232,6 @@ class TidalAPI(object):
     def getSearchResultItems(self, result: SearchResult, type: Type):
         if type == Type.Track:
             return result.tracks.items
-        if type == Type.Video:
-            return result.videos.items
         if type == Type.Album:
             return result.albums.items
         if type == Type.Artist:
@@ -262,13 +255,10 @@ class TidalAPI(object):
             raise Exception("invalid Type!")
 
         tracks = []
-        videos = []
         for item in data:
             if item['type'] == 'track' and item['item']['streamReady']:
                 tracks.append(aigpy.model.dictToModel(item['item'], Track()))
-            else:
-                videos.append(aigpy.model.dictToModel(item['item'], Video()))
-        return tracks, videos
+        return tracks
 
     def getArtistAlbums(self, id, includeEP=False):
         data = self.__getItems__(f'artists/{str(id)}/albums')
@@ -373,25 +363,6 @@ class TidalAPI(object):
             
         raise Exception("Can't get the streamUrl, type is " + resp.manifestMimeType)
 
-    def getVideoStreamUrl(self, id, quality: VideoQuality):
-        paras = {"videoquality": "HIGH", "playbackmode": "STREAM", "assetpresentation": "FULL"}
-        data = self.__get__(f'videos/{str(id)}/playbackinfopostpaywall', paras)
-        resp = aigpy.model.dictToModel(data, StreamRespond())
-
-        if "vnd.tidal.emu" in resp.manifestMimeType:
-            manifest = json.loads(base64.b64decode(resp.manifest).decode('utf-8'))
-            array = self.__getResolutionList__(manifest['urls'][0])
-            icmp = int(quality.value)
-            index = 0
-            for item in array:
-                if icmp <= int(item.resolutions[1]):
-                    break
-                index += 1
-            if index >= len(array):
-                index = len(array) - 1
-            return array[index]
-        raise Exception("Can't get the streamUrl, type is " + resp.manifestMimeType)
-
     def getTrackContributors(self, id):
         return self.__get__(f'tracks/{str(id)}/contributors')
 
@@ -420,9 +391,6 @@ class TidalAPI(object):
                 master = True
             if type == Type.Album and "DOLBY_ATMOS" in data.audioModes:
                 atmos = True
-            if data.explicit is True:
-                explicit = True
-        if type == Type.Video:
             if data.explicit is True:
                 explicit = True
         if not master and not atmos and not explicit:

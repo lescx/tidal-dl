@@ -10,15 +10,6 @@ class AudioQuality(Enum):
     Master = 3
     Max = 4
 
-
-class VideoQuality(Enum):
-    P240 = 240
-    P360 = 360
-    P480 = 480
-    P720 = 720
-    P1080 = 1080
-
-
 class Type(Enum):
     Album = 0
     Track = 1

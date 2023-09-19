@@ -6,6 +6,23 @@ import getopt
 from tidal_dl.events import *
 from tidal_dl.settings import *
 
+def main():
+    SETTINGS.read(getProfilePath())
+    TOKEN.read(getTokenPath())
+    TIDAL_API.apiKey = apiKey.getItem(SETTINGS.apiKeyIndex)
+    
+    # If user enters a flag or a URL, then don't run interactively
+    if len(sys.argv) > 1:
+        handleCommandLineArgs()
+        return
+    
+    if not apiKey.isItemValid(SETTINGS.apiKeyIndex):
+        changeApiKey()
+        loginByWeb()
+    elif not loginByConfig():
+        loginByWeb()
+
+
 def handleCommandLineArgs():
     try:
         opts, args = getopt.getopt(sys.argv[1:], 
@@ -42,21 +59,6 @@ def handleCommandLineArgs():
             loginByWeb()
         start(link)
 
-def main():
-    SETTINGS.read(getProfilePath())
-    TOKEN.read(getTokenPath())
-    TIDAL_API.apiKey = apiKey.getItem(SETTINGS.apiKeyIndex)
-    
-    # If user enters a flag or a URL, then don't run interactively
-    if len(sys.argv) > 1:
-        handleCommandLineArgs()
-        return
-    
-    if not apiKey.isItemValid(SETTINGS.apiKeyIndex):
-        changeApiKey()
-        loginByWeb()
-    elif not loginByConfig():
-        loginByWeb()
 
 if __name__ == '__main__':
     main()
