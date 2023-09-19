@@ -123,7 +123,7 @@ def downloadVideo(video: Video, album: Album = None, playlist: Playlist = None):
         check, msg = aigpy.m3u8.downloadByTsUrls(urls, path)
         if check:
             # This prints the video title after a finished download
-            #Printf.success(video.title)
+            Printf.success(video.title)
             return True
         else:
             Printf.err(f"DL Video[{video.title}] failed.{msg}")
@@ -181,7 +181,7 @@ def downloadTrack(track: Track, album=None, playlist=None, userProgress=None, pa
         __setMetaData__(track, album, path, contributors, lyrics)
         
         # This prints the track title it finished downloading it
-        #Printf.success(track.title)
+        Printf.success(track.title)
         
         return True, ''
     except Exception as e:
