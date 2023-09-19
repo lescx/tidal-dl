@@ -76,7 +76,7 @@ class Printf(object):
     def err(string):
         global print_mutex
         print_mutex.acquire()
-        print(aigpy.cmd.red(LANG.select.PRINT_ERR + " ") + string)
+        print(LANG.select.PRINT_ERR + " " + string)
         # logging.error(string)
         print_mutex.release()
         
@@ -84,111 +84,39 @@ class Printf(object):
     def info(string):
         global print_mutex
         print_mutex.acquire()
-        print(aigpy.cmd.blue(LANG.select.PRINT_INFO + " ") + string)
+        print(LANG.select.PRINT_INFO + " " + string)
         print_mutex.release()
 
     @staticmethod
     def success(string):
         global print_mutex
         print_mutex.acquire()
-        print(aigpy.cmd.green(LANG.select.PRINT_SUCCESS + " ") + string)
+        print(LANG.select.PRINT_SUCCESS + " " + string)
         print_mutex.release()
 
     @staticmethod
     def album(data: Album):
-        #tb = Printf.__gettable__([LANG.select.MODEL_ALBUM_PROPERTY, LANG.select.VALUE], [
-        #    [LANG.select.MODEL_TITLE, data.title],
-        #    ["ID", data.id],
-        #    [LANG.select.MODEL_TRACK_NUMBER, data.numberOfTracks],
-        #    [LANG.select.MODEL_VIDEO_NUMBER, data.numberOfVideos],
-        #    [LANG.select.MODEL_RELEASE_DATE, data.releaseDate],
-        #    [LANG.select.MODEL_VERSION, data.version],
-        #    [LANG.select.MODEL_EXPLICIT, data.explicit],
-        #])
-        print()
-        #logging.info("====album " + str(data.id) + "====\n" +
-        #             "title:" + data.title + "\n" +
-        #             "track num:" + str(data.numberOfTracks) + "\n" +
-        #             "video num:" + str(data.numberOfVideos) + "\n" +
-        #             "==================================")
-
+        print("Downloading album:" + data.title + '…\n')
+        
     @staticmethod
     def track(data: Track, stream: StreamUrl = None):
-        #tb = Printf.__gettable__([LANG.select.MODEL_TRACK_PROPERTY, LANG.select.VALUE], [
-        #    [LANG.select.MODEL_TITLE, data.title],
-        #    ["ID", data.id],
-        #    [LANG.select.MODEL_ALBUM, data.album.title],
-        #    [LANG.select.MODEL_VERSION, data.version],
-        #    [LANG.select.MODEL_EXPLICIT, data.explicit],
-        #    ["Max-Q", data.audioQuality],
-        #])
-        #if stream is not None:
-        #    tb.add_row(["Get-Q", str(stream.soundQuality)])
-        #    tb.add_row(["Get-Codec", str(stream.codec)])
-        print()
-        #logging.info("====track " + str(data.id) + "====\n" + \
-        #             "title:" + data.title + "\n" + \
-        #             "version:" + str(data.version) + "\n" + \
-        #             "==================================")
-
+        print("Downloading track:" + data.title + '…\n')
+        
     @staticmethod
     def video(data: Video, stream: VideoStreamUrl = None):
-        #tb = Printf.__gettable__([LANG.select.MODEL_VIDEO_PROPERTY, LANG.select.VALUE], [
-        #    [LANG.select.MODEL_TITLE, data.title],
-        #    [LANG.select.MODEL_ALBUM, data.album.title if data.album != None else None],
-        #    [LANG.select.MODEL_VERSION, data.version],
-        #    [LANG.select.MODEL_EXPLICIT, data.explicit],
-        #    ["Max-Q", data.quality],
-        #])
-        #if stream is not None:
-        #    tb.add_row(["Get-Q", str(stream.resolution)])
-        #    tb.add_row(["Get-Codec", str(stream.codec)])
-        print()
-        #logging.info("====video " + str(data.id) + "====\n" +
-        #             "title:" + data.title + "\n" +
-        #             "version:" + str(data.version) + "\n" +
-        #             "==================================")
+        print("Downloading video:" + data.title + '…\n')
 
     @staticmethod
     def artist(data: Artist, num):
-        #tb = Printf.__gettable__([LANG.select.MODEL_ARTIST_PROPERTY, LANG.select.VALUE], [
-        #    [LANG.select.MODEL_ID, data.id],
-        #    [LANG.select.MODEL_NAME, data.name],
-        #    ["Number of albums", num],
-        #    [LANG.select.MODEL_TYPE, str(data.type)],
-        #])
-        print()
-        #logging.info("====artist " + str(data.id) + "====\n" +
-        #             "name:" + data.name + "\n" +
-        #             "album num:" + str(num) + "\n" +
-        #             "==================================")
+        print("Downloading artist:" + data.title + '…\n')
 
     @staticmethod
     def playlist(data):
-        #tb = Printf.__gettable__([LANG.select.MODEL_PLAYLIST_PROPERTY, LANG.select.VALUE], [
-        #    [LANG.select.MODEL_TITLE, data.title],
-        #    [LANG.select.MODEL_TRACK_NUMBER, data.numberOfTracks],
-        #    [LANG.select.MODEL_VIDEO_NUMBER, data.numberOfVideos],
-        #])
-        print()
-        #logging.info("====playlist " + str(data.uuid) + "====\n" +
-        #             "title:" + data.title + "\n" +
-        #             "track num:" + str(data.numberOfTracks) + "\n" +
-        #             "video num:" + str(data.numberOfVideos) + "\n" +
-        #             "==================================")
+        print("Downloading playlist:" + data.title + '…\n')
 
     @staticmethod
     def mix(data):
-        #tb = Printf.__gettable__([LANG.select.MODEL_PLAYLIST_PROPERTY, LANG.select.VALUE], [
-        #    [LANG.select.MODEL_ID, data.id],
-        #    [LANG.select.MODEL_TRACK_NUMBER, len(data.tracks)],
-        #    [LANG.select.MODEL_VIDEO_NUMBER, len(data.videos)],
-        #])
-        print()
-        #logging.info("====Mix " + str(data.id) + "====\n" +
-        #             "track num:" + str(len(data.tracks)) + "\n" +
-        #             "video num:" + str(len(data.videos)) + "\n" +
-        #             "==================================")
+        print("Downloading mix:" + data.id + '…\n')
 
     @staticmethod
     def apikeys(items):

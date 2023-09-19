@@ -81,23 +81,23 @@ def downloadAlbumInfo(album, tracks):
     path = getAlbumPath(album)
     aigpy.path.mkdirs(path)
 
-    path += '/AlbumInfo.txt'
+    path += '/albumInfo.txt'
     infos = ""
-    infos += "[ID]          %s\n" % (str(album.id))
-    infos += "[Title]       %s\n" % (str(album.title))
-    infos += "[Artists]     %s\n" % (TIDAL_API.getArtistsName(album.artists))
-    infos += "[ReleaseDate] %s\n" % (str(album.releaseDate))
-    infos += "[SongNum]     %s\n" % (str(album.numberOfTracks))
-    infos += "[Duration]    %s\n" % (str(album.duration))
+    infos += "ID          %s\n" % (str(album.id))
+    infos += "Title       %s\n" % (str(album.title))
+    infos += "Artists     %s\n" % (TIDAL_API.getArtistsName(album.artists))
+    infos += "ReleaseDate %s\n" % (str(album.releaseDate))
+    infos += "SongNum     %s\n" % (str(album.numberOfTracks))
+    infos += "Duration    %s\n" % (str(album.duration))
     infos += '\n'
 
     for index in range(0, album.numberOfVolumes):
         volumeNumber = index + 1
-        infos += f"===========CD {volumeNumber}=============\n"
+        infos += f"CD {volumeNumber}\n"
         for item in tracks:
             if item.volumeNumber != volumeNumber:
                 continue
-            infos += '{:<8}'.format("[%d]" % item.trackNumber)
+            infos += '{:<8}'.format("%d" % item.trackNumber)
             infos += "%s\n" % item.title
     aigpy.file.write(path, infos, "w+")
 
@@ -122,7 +122,8 @@ def downloadVideo(video: Video, album: Album = None, playlist: Playlist = None):
 
         check, msg = aigpy.m3u8.downloadByTsUrls(urls, path)
         if check:
-            Printf.success(video.title)
+            # This prints the video title after a finished download
+            #Printf.success(video.title)
             return True
         else:
             Printf.err(f"DL Video[{video.title}] failed.{msg}")
@@ -145,7 +146,7 @@ def downloadTrack(track: Track, album=None, playlist=None, userProgress=None, pa
 
         # check exist
         if __isSkip__(path, stream.url):
-            Printf.success(aigpy.path.getFileName(path) + " (skip:already exists!)")
+            Printf.success(aigpy.path.getFileName(path) + " already exists")
             return True, ''
 
         # download
@@ -178,7 +179,10 @@ def downloadTrack(track: Track, album=None, playlist=None, userProgress=None, pa
             lyrics = ''
 
         __setMetaData__(track, album, path, contributors, lyrics)
-        Printf.success(track.title)
+        
+        # This prints the track title it finished downloading it
+        #Printf.success(track.title)
+        
         return True, ''
     except Exception as e:
         Printf.err(f"DL Track[{track.title}] failed.{str(e)}")

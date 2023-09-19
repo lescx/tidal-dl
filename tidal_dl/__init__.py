@@ -9,8 +9,8 @@ from tidal_dl.settings import *
 def handleCommandLineArgs():
     try:
         opts, args = getopt.getopt(sys.argv[1:], 
-                                   "hvl:", 
-                                   ["help", "version", "link="])
+                                   "hvql:",
+                                   ["help", "version", "verbose", "quiet", "link="])
     except getopt.GetoptError as errmsg:
         Printf.err(vars(errmsg)['msg'] + ". Use 'tidal-dl -h' for usage.")
         return
@@ -20,9 +20,15 @@ def handleCommandLineArgs():
         if opt in ('-h', '--help'):
             Printf.help()
             return
-        if opt in ('-v', '--version'):
+        if opt in ('--version'):
             Printf.version()
             return
+        if opt in ('-v', '--verbose'):
+            print("-v, --verbose placeholder")
+            continue
+        if opt in ('-q', '--quiet'):
+            print("-q, --quiet placeholder")
+            continue
         if opt in ('-l', '--link'):
             link = val
             continue
