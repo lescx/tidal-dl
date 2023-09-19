@@ -1,8 +1,8 @@
 # `tidal-dl` – "Tidal Media Downloader"
 
-`tidal-dl` is a fork of [Tidal-Media-Downloader](https://github.com/yaronzz/Tidal-Media-Downloader). It lets you download videos and tracks from Tidal.
+`tidal-dl` lets you download videos and tracks from Tidal.
 
-You can read about the [reasons for the fork]() below.
+I forked [Yaronzz](https://github.com/yaronzz/Tidal-Media-Downloader) project after it developed in the wrong direction and in a slow pace in my opinion. Still, this project uses many lines of the original code under the hood.
 
 ## Disclaimer
 
@@ -49,14 +49,6 @@ Activating the virtual environment is optional but highly recommended.
 ```shell
 poetry run python tidal_dl/__init__.py
 ```
-
-## Usage
-
-| USE                                                   | FUNCTION                   |
-| ----------------------------------------------------- | -------------------------- |
-| tidal-dl                                              | Show interactive interface |
-| tidal-dl -h                                           | Show help-message          |
-| tidal-dl -l "https://tidal.com/browse/track/70973230" | Download link              |
 
 ## Settings - Possible Tags
 
@@ -108,32 +100,25 @@ poetry run python tidal_dl/__init__.py
 | {VideoYear}       | 2021                                       |
 | {TrackID}         | 188932980                                  |
 
+
 ## Support
 
-If you really like this project and want to say thank you, you can [buy Yaronzz a coffee](https://www.buymeacoffee.com/yaronzz).
+If you really like this project and want to say thank you, you can [buy Yaronzz a coffee](https://www.buymeacoffee.com/yaronzz). He will thank you personally every morning!
 
-Please consider leaving a star on the original project or my fork.
+Please consider leaving a star start if you use this script.
 
 ## Contributors
 
-I thank [Yaronzz](https://github.com/yaronzz) for creating this tool initially!
-
-This project exists thanks [to all the people who contribute](https://github.com/yaronzz/Tidal-Media-Downloader/graphs/contributors). 
+I thank [Yaronzz](https://github.com/yaronzz) for creating this tool initially.
 
 ## Libraries and reference
 
+- [Tidal-media-Downloader](https://github.com/yaronzz/Tidal-Media-Downloader)
 - [aigpy](https://github.com/yaronzz/AIGPY)
 - [python-tidal](https://github.com/tamland/python-tidal)
 - [redsea](https://github.com/redsudo/RedSea)
 - [tidal-wiki](https://github.com/Fokka-Engineering/TIDAL/wiki)
 
-## Why a fork?
-
-* follow current best practices
-* better no GUI than a half-heartedly implemented GUI
-* no unnecessary dependencies
-* implementation of the UNIX philosophy (as far as this is possible in a Python tool)
-
 ## License
 
-This project is licensed under The Apache Version 2.0 License. More information can be found [here](https://github.com/yaronzz/Tidal-Media-Downloader/blob/master/LICENSE)
+This project is licensed under The Apache Version 2.0 License. More information can be found [here](https://github.com/lescx/tidal-dl/blob/main/LICENSE)
