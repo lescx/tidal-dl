@@ -24,47 +24,31 @@ class Printf(object):
         print(version)
 
     @staticmethod
-    def usage():
-        tb = """    -h or --help          show help-message
+    def help():
+        print("""    -h, --help          show help-message
     -v, --version         show version
-    -o, --output          download path
-    -l, --link            url/id/filePath
-    -q, --quality         track quality('Normal','High,'HiFi','Master')
-    -r, --resolution      video resolution('P1080', 'P720', 'P480', 'P360')"""
-        print(tb)
+    -l, --link            URL/ID/filePath""")
         
     @staticmethod
-    def choices():
-        #tb = Printf.__gettable__([LANG.select.CHOICE, LANG.select.FUNCTION], [
-        #    [aigpy.cmd.green(LANG.select.CHOICE_ENTER + " '0':"), LANG.select.CHOICE_EXIT],
-        #    [aigpy.cmd.green(LANG.select.CHOICE_ENTER + " '1':"), LANG.select.CHOICE_LOGIN],
-        #    [aigpy.cmd.green(LANG.select.CHOICE_ENTER + " '2':"), LANG.select.CHOICE_LOGOUT],
-        #    [aigpy.cmd.green(LANG.select.CHOICE_ENTER + " '3':"), LANG.select.CHOICE_SET_ACCESS_TOKEN],
-        #    [aigpy.cmd.green(LANG.select.CHOICE_ENTER + " '4':"), LANG.select.CHOICE_APIKEY],
-        #    [aigpy.cmd.green(LANG.select.CHOICE_ENTER_URLID), LANG.select.CHOICE_DOWNLOAD_BY_URL],
-        #])
-        print("wip choices()")
-
-    @staticmethod
     def enter(string):
-        aigpy.cmd.colorPrint(string, aigpy.cmd.TextColor.Yellow, None)
+        print(string)
         ret = input("")
         return ret
     
     @staticmethod
     def enterBool(string):
-        aigpy.cmd.colorPrint(string, aigpy.cmd.TextColor.Yellow, None)
+        print(string)
         ret = input("")
         return ret == '1'
 
     @staticmethod
     def enterPath(string, errmsg, retWord='0', default=""):
         while True:
-            ret = aigpy.cmd.inputPath(aigpy.cmd.yellow(string), retWord)
+            ret = aigpy.cmd.inputPath(string, retWord)
             if ret == retWord:
                 return default
             elif ret == "":
-                print(aigpy.cmd.red(LANG.select.PRINT_ERR + " ") + errmsg)
+                print(LANG.select.PRINT_ERR + " " + errmsg)
             else:
                 break
         return ret
@@ -72,9 +56,9 @@ class Printf(object):
     @staticmethod
     def enterLimit(string, errmsg, limit=[]):
         while True:
-            ret = aigpy.cmd.inputLimit(aigpy.cmd.yellow(string), limit)
+            ret = aigpy.cmd.inputLimit(string, limit)
             if ret is None:
-                print(aigpy.cmd.red(LANG.select.PRINT_ERR + " ") + errmsg)
+                print(LANG.select.PRINT_ERR + " " + errmsg)
             else:
                 break
         return ret

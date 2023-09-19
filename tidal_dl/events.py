@@ -9,10 +9,6 @@ from tidal_dl.tidal import *
 from tidal_dl.printf import *
 from tidal_dl.download import *
 
-'''
-Start Download
-'''
-
 
 def start_album(obj: Album):
     Printf.album(obj)

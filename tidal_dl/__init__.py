@@ -6,11 +6,11 @@ import getopt
 from tidal_dl.events import *
 from tidal_dl.settings import *
 
-def mainCommand():
+def handleCommandLineArgs():
     try:
         opts, args = getopt.getopt(sys.argv[1:], 
-                                   "hvl:o:q:r:", 
-                                   ["help", "version", "link=", "output=", "quality", "resolution"])
+                                   "hvl:", 
+                                   ["help", "version", "link="])
     except getopt.GetoptError as errmsg:
         Printf.err(vars(errmsg)['msg'] + ". Use 'tidal-dl -h' for usage.")
         return
@@ -18,25 +18,13 @@ def mainCommand():
     link = None
     for opt, val in opts:
         if opt in ('-h', '--help'):
-            Printf.usage()
+            Printf.help()
             return
         if opt in ('-v', '--version'):
             Printf.version()
             return
         if opt in ('-l', '--link'):
             link = val
-            continue
-        if opt in ('-o', '--output'):
-            SETTINGS.downloadPath = val
-            SETTINGS.save()
-            continue
-        if opt in ('-q', '--quality'):
-            SETTINGS.audioQuality = SETTINGS.getAudioQuality(val)
-            SETTINGS.save()
-            continue
-        if opt in ('-r', '--resolution'):
-            SETTINGS.videoQuality = SETTINGS.getVideoQuality(val)
-            SETTINGS.save()
             continue
     
     if not aigpy.path.mkdirs(SETTINGS.downloadPath):
@@ -46,7 +34,6 @@ def mainCommand():
     if link is not None:
         if not loginByConfig():
             loginByWeb()
-        #Printf.info(LANG.select.SETTING_DOWNLOAD_PATH + ':' + SETTINGS.downloadPath)
         start(link)
 
 def main():
@@ -54,8 +41,9 @@ def main():
     TOKEN.read(getTokenPath())
     TIDAL_API.apiKey = apiKey.getItem(SETTINGS.apiKeyIndex)
     
+    # If user enters a flag or a URL, then don't run interactively
     if len(sys.argv) > 1:
-        mainCommand()
+        handleCommandLineArgs()
         return
     
     if not apiKey.isItemValid(SETTINGS.apiKeyIndex):
@@ -63,24 +51,6 @@ def main():
         loginByWeb()
     elif not loginByConfig():
         loginByWeb()
-    
-    while True:
-        Printf.choices()
-        choice = Printf.enter(LANG.select.PRINT_ENTER_CHOICE)
-        if choice == "0":
-            return
-        elif choice == "1":
-            if not loginByConfig():
-                loginByWeb()
-        elif choice == "2":
-            loginByWeb()
-        elif choice == "3":
-            loginByAccessToken()
-        elif choice == "4":
-            if changeApiKey():
-                loginByWeb()
-        else:
-            start(choice)
 
 if __name__ == '__main__':
     main()
