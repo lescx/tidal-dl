@@ -6,10 +6,10 @@ I forked [Yaronzz](https://github.com/yaronzz/Tidal-Media-Downloader) project af
 
 ## Disclaimer
 
-- Private use only.
-- You need a paid Tidal-HIFI subscription.
-- You must not use this method for music distribution or piracy.
-- It may be illegal to use `tidal-dl` in your country.
+* Private use only.
+* You need a paid Tidal-HIFI subscription.
+* You are not allowed to use this to share or pirate music.
+* It may be illegal to use `tidal-dl` in your country.
 
 ## Installation / Developing 
 
@@ -93,7 +93,7 @@ poetry run python tidal_dl/__init__.py
 
 If you really like this project and want to say thank you, you can [buy Yaronzz a coffee](https://www.buymeacoffee.com/yaronzz). He will thank you personally every morning!
 
-Please consider leaving a star start if you use this script.
+Please consider leaving a star if you use this script.
 
 ## Contributors
 
