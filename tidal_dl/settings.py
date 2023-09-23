@@ -18,6 +18,7 @@ class Settings(aigpy.model.ModelBase):
     showProgress = True
     showTrackInfo = True
     saveAlbumInfo = False
+    downloadVideos = False
     multiThread = False
     downloadDelay = True
 

@@ -1,5 +1,13 @@
 #!/usr/bin/env python
-
+# -*- encoding: utf-8 -*-
+'''
+@File    :   tidal.py
+@Time    :   2019/02/27
+@Author  :   Yaronzz
+@VERSION :   3.0
+@Contact :   yaronhuang@foxmail.com
+@Desc    :   tidal api
+'''
 import json
 import random
 import re
@@ -89,7 +97,6 @@ class TidalAPI(object):
                 continue
             if "EXT-X-STREAM-INF:" not in item:
                 continue
-            stream = VideoStreamUrl()
             stream.codec = aigpy.string.getSub(item, "CODECS=\"", "\"")
             stream.m3u8Url = "http" + aigpy.string.getSubOnlyStart(item, "http").strip()
             stream.resolution = aigpy.string.getSub(item, "RESOLUTION=", "http").strip()
@@ -255,10 +262,11 @@ class TidalAPI(object):
             raise Exception("invalid Type!")
 
         tracks = []
+        videos = []
         for item in data:
             if item['type'] == 'track' and item['item']['streamReady']:
                 tracks.append(aigpy.model.dictToModel(item['item'], Track()))
-        return tracks
+        return tracks, videos
 
     def getArtistAlbums(self, id, includeEP=False):
         data = self.__getItems__(f'artists/{str(id)}/albums')
