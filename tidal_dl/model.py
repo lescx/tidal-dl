@@ -13,15 +13,6 @@ class StreamUrl(aigpy.model.ModelBase):
         self.soundQuality = None
 
 
-class VideoStreamUrl(aigpy.model.ModelBase):
-    def __init__(self) -> None:
-        super().__init__()
-        self.codec = None
-        self.resolution = None
-        self.resolutions = None
-        self.m3u8Url = None
-
-
 class Artist(aigpy.model.ModelBase):
     def __init__(self) -> None:
         super().__init__()
@@ -85,31 +76,11 @@ class Track(aigpy.model.ModelBase):
         self.playlist = None
 
 
-class Video(aigpy.model.ModelBase):
-    def __init__(self) -> None:
-        super().__init__()
-        self.id = None
-        self.title = None
-        self.duration = 0
-        self.imageID = None
-        self.trackNumber = 0
-        self.releaseDate = None
-        self.version = None
-        self.quality = None
-        self.explicit = False
-        self.artist = Artist()
-        self.artists = Artist()
-        self.album = Album()
-        self.allowStreaming = False
-        self.playlist = None
-
-
 class Mix(aigpy.model.ModelBase):
     def __init__(self) -> None:
         super().__init__()
         self.id = None
         self.tracks = Track()
-        self.videos = Video()
 
 
 class Lyrics(aigpy.model.ModelBase):
@@ -149,12 +120,6 @@ class SearchTracks(SearchDataBase):
         self.items = Track()
 
 
-class SearchVideos(SearchDataBase):
-    def __init__(self) -> None:
-        super().__init__()
-        self.items = Video()
-
-
 class SearchPlaylists(SearchDataBase):
     def __init__(self) -> None:
         super().__init__()
@@ -167,7 +132,6 @@ class SearchResult(aigpy.model.ModelBase):
         self.artists = SearchArtists()
         self.albums = SearchAlbums()
         self.tracks = SearchTracks()
-        self.videos = SearchVideos()
         self.playlists = SearchPlaylists()
 
 

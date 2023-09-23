@@ -209,7 +209,7 @@ class TidalAPI(object):
     def getMix(self, id) -> Mix:
         mix = Mix()
         mix.id = id
-        mix.tracks, mix.videos = self.getItems(id, Type.Mix)
+        mix.tracks = self.getItems(id, Type.Mix)
         return None, mix
 
     def getTypeData(self, id, type: Type):
@@ -228,7 +228,7 @@ class TidalAPI(object):
     def search(self, text: str, type: Type, offset: int = 0, limit: int = 10) -> SearchResult:
         typeStr = type.name.upper() + "S"
         if type == Type.Null:
-            typeStr = "ARTISTS,ALBUMS,TRACKS,VIDEOS,PLAYLISTS"
+            typeStr = "ARTISTS,ALBUMS,TRACKS,PLAYLISTS"
 
         params = {"query": text,
                   "offset": offset,
@@ -262,11 +262,10 @@ class TidalAPI(object):
             raise Exception("invalid Type!")
 
         tracks = []
-        videos = []
         for item in data:
             if item['type'] == 'track' and item['item']['streamReady']:
                 tracks.append(aigpy.model.dictToModel(item['item'], Track()))
-        return tracks, videos
+        return tracks
 
     def getArtistAlbums(self, id, includeEP=False):
         data = self.__getItems__(f'artists/{str(id)}/albums')

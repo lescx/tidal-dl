@@ -13,7 +13,6 @@ class AudioQuality(Enum):
 class Type(Enum):
     Album = 0
     Track = 1
-    Video = 2
     Playlist = 3
     Artist = 4
     Mix = 5

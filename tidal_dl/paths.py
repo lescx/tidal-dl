@@ -66,7 +66,6 @@ def getAlbumPath(album):
     retpath = retpath.replace(R"{DurationSeconds}", str(album.duration))
     retpath = retpath.replace(R"{Duration}", __getDurationStr__(album.duration))
     retpath = retpath.replace(R"{NumberOfTracks}", str(album.numberOfTracks))
-    retpath = retpath.replace(R"{NumberOfVideos}", str(album.numberOfVideos))
     retpath = retpath.replace(R"{NumberOfVolumes}", str(album.numberOfVolumes))
     retpath = retpath.replace(R"{ReleaseDate}", str(album.releaseDate))
     retpath = retpath.replace(R"{RecordType}", album.type)
@@ -132,42 +131,6 @@ def getTrackPath(track, stream, album=None, playlist=None):
     retpath = retpath.replace(R"{DurationSeconds}", str(track.duration))
     retpath = retpath.replace(R"{Duration}", __getDurationStr__(track.duration))
     retpath = retpath.replace(R"{TrackID}", str(track.id))
-    retpath = retpath.strip()
-    return f"{base}/{retpath}{extension}"
-
-
-def getVideoPath(video, album=None, playlist=None):
-    base = SETTINGS.downloadPath + '/Video/'
-    if album is not None and album.title is not None:
-        base = getAlbumPath(album)
-    elif playlist is not None:
-        base = getPlaylistPath(playlist)
-
-    # get number
-    number = str(video.trackNumber).rjust(2, '0')
-
-    # get artist
-    artists = __fixPath__(TIDAL_API.getArtistsName(video.artists))
-    artist = __fixPath__(video.artist.name) if video.artist is not None else ""
-
-    # explicit
-    explicit = "(Explicit)" if video.explicit else ''
-
-    # title and year and extension
-    title = __fixPath__(video.title)
-    year = __getYear__(video.releaseDate)
-    extension = ".mp4"
-
-    retpath = SETTINGS.videoFileFormat
-    if retpath is None or len(retpath) <= 0:
-        retpath = SETTINGS.getDefaultVideoFileFormat()
-    retpath = retpath.replace(R"{VideoNumber}", number)
-    retpath = retpath.replace(R"{ArtistName}", artist)
-    retpath = retpath.replace(R"{ArtistsName}", artists)
-    retpath = retpath.replace(R"{VideoTitle}", title)
-    retpath = retpath.replace(R"{ExplicitFlag}", explicit)
-    retpath = retpath.replace(R"{VideoYear}", year)
-    retpath = retpath.replace(R"{VideoID}", str(video.id))
     retpath = retpath.strip()
     return f"{base}/{retpath}{extension}"
 

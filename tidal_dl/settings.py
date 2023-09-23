@@ -36,8 +36,6 @@ class Settings(aigpy.model.ModelBase):
             return R"Playlist/{PlaylistName} [{PlaylistUUID}]"
         elif type == Type.Track:
             return R"{TrackNumber} - {ArtistName} - {TrackTitle}{ExplicitFlag}"
-        elif type == Type.Video:
-            return R"{VideoNumber} - {ArtistName} - {VideoTitle}{ExplicitFlag}"
         return ""
 
     def getAudioQuality(self, value):

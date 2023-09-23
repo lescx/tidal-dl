@@ -12,14 +12,12 @@ from tidal_dl.download import *
 
 def start_album(obj: Album):
     Printf.album(obj)
-    tracks, videos = TIDAL_API.getItems(obj.id, Type.Album)
+    tracks = TIDAL_API.getItems(obj.id, Type.Album)
     if SETTINGS.saveAlbumInfo:
         downloadAlbumInfo(obj, tracks)
     if SETTINGS.saveCovers and obj.cover is not None:
         downloadCover(obj)
     downloadTracks(tracks, obj)
-    if SETTINGS.downloadVideos:
-        downloadVideos(videos, obj)
 
 
 def start_track(obj: Track):
@@ -27,10 +25,6 @@ def start_track(obj: Track):
     if SETTINGS.saveCovers:
         downloadCover(album)
     downloadTrack(obj, album)
-
-
-def start_video(obj: Video):
-    downloadVideo(obj, obj.album)
 
 
 def start_artist(obj: Artist):
@@ -42,16 +36,13 @@ def start_artist(obj: Artist):
 
 def start_playlist(obj: Playlist):
     Printf.playlist(obj)
-    tracks, videos = TIDAL_API.getItems(obj.uuid, Type.Playlist)
+    tracks = TIDAL_API.getItems(obj.uuid, Type.Playlist)
     downloadTracks(tracks, None, obj)
-    if SETTINGS.downloadVideos:
-        downloadVideos(videos, None, obj)
 
 
 def start_mix(obj: Mix):
     Printf.mix(obj)
     downloadTracks(obj.tracks, None, None)
-    downloadVideos(obj.videos, None, None)
 
 
 def start_file(string):
@@ -75,8 +66,6 @@ def start_type(etype: Type, obj):
         start_album(obj)
     elif etype == Type.Track:
         start_track(obj)
-    elif etype == Type.Video:
-        start_video(obj)
     elif etype == Type.Artist:
         start_artist(obj)
     elif etype == Type.Playlist:

@@ -102,13 +102,10 @@ class Printf(object):
     def track(data: Track, stream: StreamUrl = None):
         print("Downloading track:" + data.title + '…\n')
         
-    @staticmethod
-    def video(data: Video, stream: VideoStreamUrl = None):
-        print("Downloading video:" + data.title + '…\n')
-
+        
     @staticmethod
     def artist(data: Artist, num):
-        print("Downloading artist:" + data.title + '…\n')
+        print("Downloading artist:" + data.name + '…\n')
 
     @staticmethod
     def playlist(data):

@@ -11,12 +11,13 @@ I forked [Yaronzz](https://github.com/yaronzz/Tidal-Media-Downloader) project af
 * You are not allowed to use this to share or pirate music.
 * It may be illegal to use `tidal-dl` in your country.
 
+
 ## Installation / Developing 
 
-### 0. Prerequisites
+### Prerequisites
 
 * Make sure you have Python 3.11 or higher installed on your system.
-* Install [Poetry](https://python-poetry.org) if you haven't already (it's great!). You can install it using pipx:
+* I recommend installing the project dependencies using [Poetry](https://python-poetry.org). If you used `pipx` before, you can install it with this command:
 
 ```shell
 pipx install poetry
@@ -24,31 +25,16 @@ pipx install poetry
 
 For other installation methods, see Poetry's [official docs](https://python-poetry.org/docs/).
 
-### 1. Install Dependencies with Poetry
+### Setup Development Environment with Poetry
 
-Use Poetry to install the project's dependencies and set up a python `venv` virtual environment:
-
-```shell
-poetry install
-```
-
-This command will create a virtual environment for your project and install all required dependencies listed in `pyproject.toml`.
-
-### 2. Activate the Virtual Environment
-
-If you want to activate the virtual environment to work within it, you can use:
+Use Poetry to set up a python `venv` virtual environment and install the dependencies. After that you can develop and run your stuff in the `venv` environment.
 
 ```shell
-poetry shell
+poetry shell                            # 1. setup development environment
+poetry install                          # 2. install dependencies
+poetry run python tidal_dl/__init__.py  # 3. start program
 ```
 
-Activating the virtual environment is optional but highly recommended.
-
-### (Do Your Development and) Run Your Program
-
-```shell
-poetry run python tidal_dl/__init__.py
-```
 
 ## Settings - Possible Tags
 
@@ -56,21 +42,20 @@ poetry run python tidal_dl/__init__.py
 
 | Tag               | Example value                         |
 | ----------------- | ------------------------------------- |
-| {ArtistName}      | The Beatles                           |
+| {ArtistName}      | The Beatles, Benjamin Flower          |
 | {AlbumArtistName} | The Beatles                           |
 | {Flag}            | M/A/E *(Master/Dolby Atmos/Explicit)* |
-| {AlbumID}         | 55163243                              |
-| {AlbumYear}       | 1963                                  |
-| {AlbumTitle}      | Please Please Me (Remastered)         |
+| {AlbumID}         | 55160043                              |
+| {AlbumYear}       | 1969                                  |
+| {AlbumTitle}      | Please Not Me (Remastered)            |
 | {AudioQuality}    | LOSSLESS                              |
 | {DurationSeconds} | 1919                                  |
 | {Duration}        | 31:59                                 |
 | {NumberOfTracks}  | 14                                    |
-| {NumberOfVideos}  | 0                                     |
 | {NumberOfVolumes} | 1                                     |
-| {ReleaseDate}     | 1963-03-22                            |
+| {ReleaseDate}     | 1969-03-22                            |
 | {RecordType}      | ALBUM                                 |
-| {None}            |                                       |
+
 
 ### Track
 
@@ -81,8 +66,8 @@ poetry run python tidal_dl/__init__.py
 | {ArtistsName}     | The Beatles                                |
 | {TrackTitle}      | I Saw Her Standing There (Remastered 2009) |
 | {ExplicitFlag}    | (*Explicit*)                               |
-| {AlbumYear}       | 1963                                       |
-| {AlbumTitle}      | Please Please Me (Remastered)              |
+| {AlbumYear}       | 1969                                       |
+| {AlbumTitle}      | Please Not Me (Remastered)                 |
 | {AudioQuality}    | LOSSLESS                                   |
 | {DurationSeconds} | 173                                        |
 | {Duration}        | 02:53                                      |
@@ -95,9 +80,11 @@ If you really like this project and want to say thank you, you can [buy Yaronzz 
 
 Please consider leaving a star if you use this script.
 
+
 ## Contributors
 
 I thank [Yaronzz](https://github.com/yaronzz) for creating this tool initially.
+
 
 ## Libraries and reference
 
@@ -106,6 +93,7 @@ I thank [Yaronzz](https://github.com/yaronzz) for creating this tool initially.
 - [python-tidal](https://github.com/tamland/python-tidal)
 - [redsea](https://github.com/redsudo/RedSea)
 - [tidal-wiki](https://github.com/Fokka-Engineering/TIDAL/wiki)
+
 
 ## License
 

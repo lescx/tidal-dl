@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "tidal-dl"
 version = "0.1.0"
-description = "tidal-dl lets you download videos and tracks from Tidal."
+description = "tidal-dl lets you archive tracks from Tidal."
 authors = ["Luca Etienne Schulz <git@les.cx>"]
 license = "Apache-2.0 license"
 readme = "README.md"
