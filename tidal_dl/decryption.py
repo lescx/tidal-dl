@@ -6,12 +6,11 @@ from Crypto.Cipher import AES
 from Crypto.Util import Counter
 
 
+'''
+Decrypts security token into key and nonce pair.
+security_token should match the securityToken value from the web response.
+'''
 def decrypt_security_token(security_token):
-    '''
-    Decrypts security token into key and nonce pair
-
-    security_token should match the securityToken value from the web response
-    '''
 
     # Do not change this
     master_key = 'UIlTTEMmmLfGowo/UC60x2H45W6MdGgTRfo/umg4754='
@@ -37,11 +36,11 @@ def decrypt_security_token(security_token):
     return key, nonce
 
 
+'''
+Decrypts an encrypted MQA file given the file, key and nonce.
+'''
 def decrypt_file(efile, dfile, key, nonce):
-    '''
-    Decrypts an encrypted MQA file given the file, key and nonce
-    '''
-
+    
     # Initialize counter and file decryptor
     counter = Counter.new(64, prefix=nonce, initial_value=0)
     decryptor = AES.new(key, AES.MODE_CTR, counter=counter)
