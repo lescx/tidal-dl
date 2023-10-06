@@ -2,7 +2,7 @@
 
 `tidal-dl` lets you archive music from Tidal.
 
-I forked [Yaronzz](https://github.com/yaronzz/Tidal-Media-Downloader) project after it developed in the wrong direction and in a slow pace in my opinion. Still, this project uses many lines of the original code under the hood.
+I forked [Yaronzz](https://github.com/yaronzz/Tidal-Media-Downloader) project after it developed in the wrong direction and in a slow pace. I added a few new features, updated and simplified the code base, removed a few unnecessary dependencies and made the program follow the UNIX philosophy. Still, this project uses many lines of the original code under the hood.
 
 ## Disclaimer
 
